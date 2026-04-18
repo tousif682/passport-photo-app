@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Passport size photo Studio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body {
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(-45deg,#1e3c72,#2a5298,#00c6ff,#0072ff);
+  background-size:400% 400%;
+  animation:bgMove 10s ease infinite;
+}
+
+@keyframes bgMove {
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+.card {
+  width:360px;
+  padding:30px;
+  border-radius:25px;
+  background:rgba(255,255,255,0.1);
+  backdrop-filter:blur(25px);
+  box-shadow:0 20px 60px rgba(0,0,0,0.4);
+  color:white;
+  text-align:center;
+  animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-12px);}
+  100%{transform:translateY(0);}
+}
+
+h1 {
+  font-size:22px;
+  margin-bottom:20px;
+}
+
+.upload {
+  border:2px dashed rgba(255,255,255,0.5);
+  padding:25px;
+  border-radius:15px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.upload:hover {
+  background:rgba(255,255,255,0.2);
+  transform:scale(1.02);
+}
+
+.upload input {
+  display:none;
+}
+
+select {
+  width:100%;
+  margin-top:15px;
+  padding:12px;
+  border:none;
+  border-radius:12px;
+  outline:none;
+}
+
+button {
+  margin-top:20px;
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:12px;
+  background:linear-gradient(90deg,#00c6ff,#0072ff);
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover {
+  transform:scale(1.05);
+  box-shadow:0 0 20px #00c6ff;
+}
+
+.loader {
+  display:none;
+  margin-top:15px;
+}
+
+.loader::after {
+  content:"";
+  width:25px;
+  height:25px;
+  border:3px solid white;
+  border-top:3px solid transparent;
+  border-radius:50%;
+  display:inline-block;
+  animation:spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to{transform:rotate(360deg);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>✨ AI Passport Studio</h1>
+
+  <form id="form">
+    
+    <label class="upload">
+      📸 Click or Drop Image
+      <input type="file" name="image" required>
+    </label>
+
+    <select name="color">
+      <option value="#87CEEB">Sky Blue</option>
+      <option value="#0000FF">Blue</option>
+    </select>
+
+    <button type="submit">Generate PDF 🚀</button>
+
+    <div class="loader" id="loader"></div>
+  </form>
+</div>
+
+<script src="/static/script.js"></script>
+
+</body>
+</html>
