@@ -1,4 +1,8 @@
 flask
-rembg
+rembg==2.0.50
+onnxruntime==1.16.3
+numpy==1.26.4
+numba==0.58.1
+llvmlite==0.41.1
 pillow
 reportlab
